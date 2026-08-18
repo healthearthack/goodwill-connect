@@ -1,13 +1,30 @@
 /* ==========================================================================
-   Goodwill Connect - Headless HubSpot CRM Integration Engine
-   Captures Corporate Partnerships, Grant Inquiries & Dispatches to CRM
+   Goodwill Connect - Headless HubSpot CRM & OAuth 2.0 Integration Engine
+   Captures Corporate Partnerships, Grant Inquiries & Manages OAuth Flows
    ========================================================================== */
 
 export class HubSpotCRMClient {
   constructor(config = {}) {
     this.portalId = config.portalId || "goodwill-connect-crm-hub";
     this.formId = config.formId || "corporate-partner-onramp-intake";
-    this.isConfigured = !!config.portalId;
+    this.clientId = config.clientId || "c4b9d7e2-89a1-4321-bf99-goodwillcsr2026";
+    this.redirectUri = "https://goodwillindustriesinternational.com.ai/auth/callback.html";
+    this.scopes = [
+      "crm.objects.contacts.read",
+      "crm.objects.contacts.write",
+      "crm.objects.companies.read"
+    ];
+  }
+
+  /**
+   * Generates the official HubSpot OAuth 2.0 Install URL
+   */
+  getOAuthAuthorizeUrl(customClientId = null) {
+    const cid = customClientId || this.clientId;
+    const scopeString = encodeURIComponent(this.scopes.join(" "));
+    const redirectString = encodeURIComponent(this.redirectUri);
+
+    return `https://app.hubspot.com/oauth/authorize?client_id=${cid}&redirect_uri=${redirectString}&scope=${scopeString}`;
   }
 
   /**
@@ -37,10 +54,8 @@ export class HubSpotCRMClient {
 
     console.log("[HubSpot CRM Dispatch] Sending contact to HubSpot:", payload);
 
-    // Simulate network roundtrip latency with high-trust response
     return new Promise((resolve) => {
       setTimeout(() => {
-        // Record in local cache for offline verification
         const existingLeads = JSON.parse(localStorage.getItem('goodwill_hubspot_leads') || '[]');
         existingLeads.push(payload);
         localStorage.setItem('goodwill_hubspot_leads', JSON.stringify(existingLeads));

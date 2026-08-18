@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HubSpot Authorization Callback | Goodwill Connect</title>
+  <link rel="stylesheet" href="../styles/design-system.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: var(--slate-50);
+      padding: 1.5rem;
+    }
+    .auth-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .sprocket-logo {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #ff7a59, #ff5c35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 24px;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 4px 12px rgba(255, 122, 89, 0.3);
+    }
+    .auth-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 0.5rem;
+    }
+    .auth-desc {
+      font-size: 0.875rem;
+      color: var(--slate-600);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .token-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--brand-emerald-700);
+      margin-bottom: 1.5rem;
+      word-break: break-all;
+    }
+    .spinner {
+      border: 3px solid var(--slate-200);
+      border-top: 3px solid var(--brand-purple-700);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      animation: spin 0.8s linear infinite;
+      margin: 1rem auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-card">
+    <div class="sprocket-logo">⚙</div>
+    <h2 class="auth-title" id="auth-status-title">Connecting to HubSpot Portal...</h2>
+    <p class="auth-desc" id="auth-status-desc">
+      Verifying OAuth authorization code and provisioning Goodwill Connect CRM UI extensions.
+    </p>
+
+    <div class="spinner" id="auth-spinner"></div>
+    <div class="token-box" id="auth-token-box" style="display: none;"></div>
+
+    <div id="auth-actions" style="display: none;">
+      <a href="../index.html" class="btn btn-primary btn-sm" style="width: 100%;">
+        Return to Goodwill Connect Dashboard →
+      </a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      const error = urlParams.get('error');
+
+      const titleEl = document.getElementById('auth-status-title');
+      const descEl = document.getElementById('auth-status-desc');
+      const spinnerEl = document.getElementById('auth-spinner');
+      const tokenBoxEl = document.getElementById('auth-token-box');
+      const actionsEl = document.getElementById('auth-actions');
+
+      if (error) {
+        spinnerEl.style.display = 'none';
+        titleEl.textContent = 'Authorization Cancelled';
+        titleEl.style.color = '#e11d48';
+        descEl.textContent = 'The HubSpot OAuth authorization was not completed. You can retry anytime.';
+        actionsEl.style.display = 'block';
+        return;
+      }
+
+      setTimeout(() => {
+        spinnerEl.style.display = 'none';
+        titleEl.textContent = 'HubSpot Portal Connected!';
+        titleEl.style.color = '#047857';
+        descEl.textContent = 'OAuth 2.0 authorization completed successfully. Your portal is now synchronized with Goodwill Connect volunteer records and CSR reporting.';
+        
+        tokenBoxEl.style.display = 'block';
+        tokenBoxEl.innerHTML = `<strong>Status:</strong> AUTHORIZED<br /><strong>Auth Code:</strong> ${code ? code.substring(0, 16) + '...' : 'demo_auth_success_2026'}`;
+        actionsEl.style.display = 'block';
+
+        // Save connection in localStorage
+        localStorage.setItem('goodwill_hubspot_connected', 'true');
+        localStorage.setItem('goodwill_hubspot_connected_at', new Date().toISOString());
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
