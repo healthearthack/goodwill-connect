@@ -1,0 +1,40 @@
+{
+  "uid": "goodwill_connect_csr_app",
+  "type": "app",
+  "config": {
+    "name": "Goodwill Connect (CSR & Tech Onramp)",
+    "description": "Verifiable volunteer network, AI workforce training onramps, and automated CSR/ESG hour tracking for enterprise teams.",
+    "distribution": "marketplace",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://goodwillindustriesinternational.com.ai/auth/callback"
+      ],
+      "requiredScopes": [
+        "crm.objects.contacts.read",
+        "crm.objects.contacts.write",
+        "crm.objects.companies.read"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com",
+        "https://goodwillindustriesinternational.com.ai"
+      ],
+      "iframe": [
+        "https://goodwillindustriesinternational.com.ai"
+      ],
+      "img": [
+        "https://goodwillindustriesinternational.com.ai"
+      ]
+    },
+    "support": {
+      "supportEmail": "support@goodwillindustriesinternational.com.ai",
+      "documentationUrl": "https://goodwillindustriesinternational.com.ai",
+      "supportUrl": "https://goodwillindustriesinternational.com.ai",
+      "supportPhone": "+18005555555"
+    }
+  }
+}

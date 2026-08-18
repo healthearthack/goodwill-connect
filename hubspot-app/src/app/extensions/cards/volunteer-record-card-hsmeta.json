@@ -1,0 +1,13 @@
+{
+  "uid": "goodwill_volunteer_record_card",
+  "type": "card",
+  "config": {
+    "title": "Goodwill Verified Volunteer Record",
+    "targetObjects": ["contacts", "companies"],
+    "location": "crm.record.tab",
+    "dataFetch": {
+      "type": "iframe",
+      "url": "https://goodwillindustriesinternational.com.ai/hubspot-card.html"
+    }
+  }
+}
