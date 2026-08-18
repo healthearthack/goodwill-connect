@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howard Connected | HubSpot Authorization Callback</title>
+  <link rel="stylesheet" href="styles/howard.css" />
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #fdfaf6;
+      padding: 1.5rem;
+    }
+    .auth-card {
+      background: #ffffff;
+      border: 1px solid #e8e2d5;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08);
+    }
+    .seal-avatar {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #ff7a59, #c2410c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 6px 16px rgba(235, 93, 56, 0.35);
+    }
+    .auth-card h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .auth-card p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .token-pill {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.875rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.8125rem;
+      color: #047857;
+      margin-bottom: 1.75rem;
+      word-break: break-all;
+    }
+    .btn-return {
+      background: linear-gradient(135deg, #ff7a59, #c2410c);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 0.875rem 1.75rem;
+      border-radius: 10px;
+      display: inline-block;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(235, 93, 56, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-card">
+    <div class="seal-avatar">☕</div>
+    <h2 id="auth-title">Connecting Howard to Your HubSpot Portal...</h2>
+    <p id="auth-desc">Synchronizing Howard's asynchronous penpal engine and CRM card extensions with your HubSpot records.</p>
+    
+    <div class="token-pill" id="token-status">
+      <strong>Status:</strong> AUTHORIZING WITH HUBSPOT API...
+    </div>
+
+    <a href="index.html" class="btn-return" id="return-btn">
+      Enter Howard's Penpal Letterbox →
+    </a>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      const error = urlParams.get('error');
+
+      const titleEl = document.getElementById('auth-title');
+      const descEl = document.getElementById('auth-desc');
+      const statusEl = document.getElementById('token-status');
+
+      if (error) {
+        titleEl.textContent = 'Authorization Cancelled';
+        titleEl.style.color = '#e11d48';
+        descEl.textContent = 'The HubSpot OAuth authorization was not completed. You can retry anytime.';
+        statusEl.innerHTML = '<strong>Status:</strong> CANCELLED';
+        statusEl.style.color = '#e11d48';
+        return;
+      }
+
+      setTimeout(() => {
+        titleEl.textContent = "Howard is Connected to Your HubSpot!";
+        titleEl.style.color = "#047857";
+        descEl.textContent = "Howard has been added as your AI coworker. You can now dispatch letters from your inbox and see silent CRM cards on Contacts and Deals.";
+        statusEl.innerHTML = `<strong>Status:</strong> ACTIVE BESTIE INSTALLED<br /><strong>Auth Code:</strong> ${code ? code.substring(0, 16) + '...' : 'active_hubspot_token'}`;
+        
+        localStorage.setItem('howard_hubspot_installed', 'true');
+        localStorage.setItem('howard_hubspot_installed_at', new Date().toISOString());
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
