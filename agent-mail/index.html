@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howard (Agent Mail) | Your HubSpot Productivity Penpal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/agent-mail.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Top Global Header -->
+    <header class="top-nav">
+      <div class="nav-brand">
+        <div class="wax-seal-icon">✉</div>
+        <div class="brand-text">
+          <h1>Howard <span class="badge-penpal">Agent Mail</span></h1>
+          <p class="tagline">Your HubSpot AI Work Bestie &amp; Asynchronous Productivity Penpal</p>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="hubspot-badge">
+          <span class="pulse-dot"></span>
+          <span>HubSpot CRM Sync: <strong>Active</strong></span>
+        </div>
+        <a href="../index.html" class="nav-link">← Goodwill Connect</a>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="mail-grid">
+      <!-- Left Column: Mailbox Archives -->
+      <aside class="sidebar-mailbox">
+        <div class="mailbox-header">
+          <h2>📬 Dispatches Archive</h2>
+          <button class="btn-new-letter" id="btn-compose-top">+ New Letter</button>
+        </div>
+
+        <div class="contact-card-howard">
+          <div class="avatar-ring">
+            <span class="avatar-emoji">☕</span>
+          </div>
+          <div class="howard-meta">
+            <strong>Howard Vance</strong>
+            <span class="email-address">howard@hubspot.mail</span>
+            <span class="status-tempo">Tempo: Thoughtful &amp; Deep</span>
+          </div>
+        </div>
+
+        <div class="thread-list" id="thread-list">
+          <!-- Thread Items Populated via JS -->
+        </div>
+
+        <div class="mailbox-footer">
+          <p><em>&ldquo;Good marketing isn't rushed. Write Howard a letter, grab a coffee, and let the agent work.&rdquo;</em></p>
+        </div>
+      </aside>
+
+      <!-- Center Column: The Stationery Desk (Letter Composer & Reader) -->
+      <section class="stationery-desk">
+        <!-- Active Letter Paper Container -->
+        <article class="letter-sheet" id="letter-sheet">
+          <div class="postage-stamp">
+            <div class="stamp-inner">
+              <span class="stamp-hubspot">HUBSPOT</span>
+              <span class="stamp-val">2026</span>
+              <span class="stamp-icon">⚙️</span>
+            </div>
+            <div class="postmark">DISPATCHED · PROMPT-HUB · AIR-MAIL</div>
+          </div>
+
+          <div class="letter-header">
+            <div class="recipient-line">
+              <span class="field-label">To:</span>
+              <span class="field-value" id="current-recipient">Howard (Your Work Bestie) &lt;howard@hubspot.mail&gt;</span>
+            </div>
+            <div class="subject-line">
+              <span class="field-label">Subject:</span>
+              <span class="field-value" id="current-subject">Audit Q4 Re-engagement Sequences &amp; Silent CRM Lead Scoring</span>
+            </div>
+            <div class="date-line">
+              <span class="field-label">Date:</span>
+              <span class="field-value" id="current-date">August 18, 2026</span>
+            </div>
+          </div>
+
+          <hr class="stationery-rule" />
+
+          <!-- Letter Body Stream Container -->
+          <div class="letter-body" id="letter-body">
+            <!-- Dynamic Letter Text Rendered Here -->
+          </div>
+
+          <!-- Typewriter Indicator -->
+          <div class="agent-thinking" id="agent-thinking" style="display: none;">
+            <div class="coffee-loader"></div>
+            <span id="agent-step-label">Howard is reviewing your HubSpot contact records...</span>
+          </div>
+
+          <!-- Quick Response Composer (Inline Stationery) -->
+          <div class="composer-container" id="composer-container">
+            <hr class="stationery-rule" />
+            <h3>✍️ Write a Follow-up Letter to Howard</h3>
+            <div class="starter-chips">
+              <button class="chip" data-prompt="Hey Howard, can you write 3 high-converting subject lines for our upcoming tech onramp launch?">💌 3 Subject Lines</button>
+              <button class="chip" data-prompt="Howard, please silently audit all uncontacted leads in HubSpot and tag any high-intent corporate partners.">📊 Audit Uncontacted Leads</button>
+              <button class="chip" data-prompt="How is our marketing pipeline holding up today? Give me the executive watercooler summary.">☕ Pipeline Morale Check</button>
+            </div>
+            <textarea id="composer-text" placeholder="Dear Howard, &#10;&#10;Could you look over our recent HubSpot campaign and tweak our contact lead scores? Grab a coffee on me..."></textarea>
+            <div class="composer-actions">
+              <span class="tempo-note">✉️ Asynchronous stride: Howard will reply with verified CRM changes in 5s</span>
+              <button class="btn-seal-dispatch" id="btn-send-letter">
+                <span class="seal-icon">🔏</span> Dispatch Letter to Howard
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right Column: Silent HubSpot CRM Terminal -->
+      <aside class="sidebar-crm-terminal">
+        <div class="terminal-header">
+          <h2>⚡ Silent HubSpot Actions</h2>
+          <span class="badge-live">LIVE CRM ENGINE</span>
+        </div>
+
+        <div class="terminal-intro">
+          <p>Every letter Howard writes executes concrete, background mutations inside your HubSpot portal:</p>
+        </div>
+
+        <div class="crm-action-stream" id="crm-action-stream">
+          <!-- Live Action Ticker Items Generated via JS -->
+        </div>
+
+        <div class="workflow-card-preview">
+          <h3>⚙️ Connected Workflow Action</h3>
+          <div class="wf-pill">
+            <span class="wf-icon">⚡</span>
+            <span><code>Ask Howard (Agent Mail)</code></span>
+          </div>
+          <p class="wf-desc">Any HubSpot automation workflow can dispatch records to Howard's penpal inbox for silent background intelligence.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
