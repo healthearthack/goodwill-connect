@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goodwill Connect | Verifiable Volunteer Network & Tech Onramp Platform</title>
+  <meta name="description" content="goodwillindustriesinternational.com.ai - Goodwill Connect is the premier verifiable volunteer network & tech onramp platform. Where service becomes experience." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234338ca'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/design-system.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Impact Status Ribbon -->
+  <div class="top-ribbon">
+    <div class="ribbon-left">
+      <span class="status-badge-live">
+        <span class="status-dot"></span>
+        Network Live
+      </span>
+      <span class="ribbon-metric">
+        Institutional Impact: <strong id="ticker-verified-hours">14,275 hrs</strong> Verified Across 120+ Communities
+      </span>
+    </div>
+    <div class="ribbon-right">
+      <a href="javascript:void(0)" id="btn-hubspot-app-preview" class="ribbon-link" style="color: #ffb8a6; font-weight: 700;">
+        <span class="hubspot-dot-sprocket" style="width: 13px; height: 13px; font-size: 8px;">⚙</span>
+        HubSpot Marketplace App
+      </a>
+      <a href="javascript:void(0)" id="btn-open-partner-intake" class="ribbon-link" style="color: #a7f3d0;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Enterprise Sponsor CRM
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="brand-wrapper">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-symbol">GW</div>
+          <div class="brand-titles">
+            <span class="brand-name">
+              Goodwill Connect
+              <span class="brand-badge">Official</span>
+            </span>
+            <span class="brand-sub">Goodwill Industries International • Tech Onramp</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="header-nav">
+        <a href="#explore-section" class="nav-tab active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Opportunity Hub
+        </a>
+        <a href="javascript:void(0)" id="nav-btn-cert" class="nav-tab" onclick="document.getElementById('btn-view-certificate').click()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          Verifiable Credentials
+        </a>
+        <a href="javascript:void(0)" class="nav-tab" onclick="document.getElementById('btn-hubspot-app-preview').click()">
+          <span style="color: #ff7a59; font-weight: bold;">⚙</span>
+          HubSpot App
+        </a>
+        <a href="#leaderboard-section" class="nav-tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Leaderboard
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="role-toggle-group">
+          <button class="role-btn active" data-role="VOLUNTEER">Volunteer Mode</button>
+          <button class="role-btn" data-role="PARTNER">Partner Mode</button>
+        </div>
+
+        <button class="btn btn-primary btn-sm" id="btn-post-opportunity">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Post Opportunity
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-banner">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tagline-pill">
+          <span class="dot"></span>
+          Enterprise Tech Onramp & Digital Credentials
+        </div>
+        <h1 class="hero-title">
+          Where Service Becomes <br />
+          <span class="highlight-purple">Verifiable Experience.</span>
+        </h1>
+        <p class="hero-desc">
+          Gain enterprise-mentored software, accessibility, and AI auditing skills. 
+          Every contribution earns institutional service hours and digitally verifiable 
+          credentials that publish straight to your LinkedIn profile.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn btn-primary btn-lg" id="btn-hero-explore">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Explore Opportunities
+          </button>
+          <button class="btn btn-outline btn-lg" id="btn-hero-post">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Post a Need or Opportunity
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Stats Card -->
+      <div class="hero-stats-card">
+        <div class="stats-card-header">
+          <span class="stats-card-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--brand-purple-700)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Goodwill Tech Network Live Telemetry
+          </span>
+          <span class="verified-emerald-badge">Verified 2026</span>
+        </div>
+        <div class="stats-grid-compact">
+          <div class="stat-box">
+            <div class="stat-box-value purple">1,420+</div>
+            <div class="stat-box-label">Enrolled Tech Volunteers</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-value emerald">100%</div>
+            <div class="stat-box-label">Digitally Signed Credentials</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-value">48</div>
+            <div class="stat-box-label">Corporate Mentor Partners</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-value emerald">14.2k</div>
+            <div class="stat-box-label">Hours Conferred to Date</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <main class="main-layout" id="explore-section">
+    
+    <!-- Left Column: User Profile & Credential Summary -->
+    <aside class="left-sidebar">
+      <div class="profile-card">
+        <div class="profile-card-cover"></div>
+        <div class="profile-card-body">
+          <div class="profile-avatar-large">JH</div>
+          <h3 class="profile-name" id="user-profile-name">Jordan Hayes</h3>
+          <span class="profile-role-badge" id="user-role-badge">Goodwill Tech Contributor</span>
+          
+          <div class="profile-stats-divider">
+            <div class="profile-stat-item">
+              <span>Verified Service Hours</span>
+              <strong class="emerald" id="user-verified-hours">25 hrs</strong>
+            </div>
+            <div class="profile-stat-item">
+              <span>Academic Service Tier</span>
+              <strong>Gold NHS Fellow</strong>
+            </div>
+            <div class="profile-stat-item">
+              <span>Transcript Status</span>
+              <strong style="color: var(--brand-purple-700);">Accredited</strong>
+            </div>
+          </div>
+
+          <div class="badges-earned-box">
+            <div class="badges-earned-title">Earned Skill Badges</div>
+            <div id="user-badges-list">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem;">
+            <button class="btn btn-outline btn-sm" id="btn-view-certificate" style="width: 100%;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              View Verifiable Credential
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Sidebar Card -->
+      <div class="sidebar-action-card">
+        <h4 class="sidebar-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Direct Hour Audit
+        </h4>
+        <p style="font-size: 0.8125rem; color: var(--slate-600); margin-bottom: 0.875rem;">
+          Completed off-platform volunteer service or corporate mentorship? Submit your hours for verification.
+        </p>
+        <button class="btn btn-outline btn-sm" id="btn-log-hours-quick" style="width: 100%;">
+          Submit Service Hours
+        </button>
+      </div>
+    </aside>
+
+    <!-- Center Column: Opportunity Feed & Search -->
+    <section class="main-feed">
+      <div class="feed-filter-panel">
+        <div class="search-input-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" class="search-input" id="search-opportunities" placeholder="Search by skill (e.g. AI Ethics, TypeScript, Calculus, Linux, Hardware)..." />
+        </div>
+
+        <div class="category-tabs-bar">
+          <button class="filter-tab active" data-category="ALL">All Initiatives</button>
+          <button class="filter-tab" data-category="GOOGLE_TECH_ONRAMP">Google Tech Onramp</button>
+          <button class="filter-tab" data-category="STEM_TUTORING">STEM & NHS Tutoring</button>
+          <button class="filter-tab" data-category="E_WASTE_RECYCLING">E-Waste & Hardware</button>
+          <button class="filter-tab" data-category="COMMUNITY_HELP">Digital Literacy & AI</button>
+        </div>
+
+        <div class="sub-filter-row">
+          <span id="results-count">Showing verified opportunities</span>
+          <div class="filter-toggles">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filter-partner-only" />
+              Verified Partners Only
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed Container -->
+      <div id="opportunity-feed">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Right Column: Leaderboard & Enterprise CRM Intake -->
+    <aside class="right-sidebar" id="leaderboard-section">
+      <div class="widget-card">
+        <div class="widget-header">
+          <h4 class="widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--brand-purple-700)"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7v2h10v-2h-2c-.55 0-1-.45-1-1v-2.34c3.5-1.12 6-4.39 6-8.66H4c0 4.27 2.5 7.54 6 8.66z"/></svg>
+            Top Verifier Leaderboard
+          </h4>
+          <span style="font-size: 0.6875rem; color: var(--slate-400); font-weight: 600;">Monthly</span>
+        </div>
+        <div class="leaderboard-list" id="leaderboard-list">
+          <!-- Dynamically Rendered -->
+        </div>
+      </div>
+
+      <!-- Corporate HubSpot CRM Intake Banner -->
+      <div class="hubspot-partner-card">
+        <span class="partner-card-badge">Enterprise & Philanthropy</span>
+        <h4>Partner with Goodwill Connect</h4>
+        <p>
+          Sponsor corporate tech onramps, provide hardware donation grants, or mobilize employee mentorship programs.
+        </p>
+        <button class="btn btn-emerald btn-sm" id="btn-open-partner-intake-sidebar" onclick="document.getElementById('btn-open-partner-intake').click()" style="width: 100%;">
+          Inquire via HubSpot CRM →
+        </button>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h4>Goodwill Industries International</h4>
+        <p>
+          Goodwill Connect is the world's premier verifiable volunteer network and tech onramp platform. Transforming community service into accredited career experience.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Programs & Tracks</h5>
+        <ul>
+          <li><a href="#explore-section">Google Tech Onramp</a></li>
+          <li><a href="#explore-section">STEM & NHS Peer Tutoring</a></li>
+          <li><a href="#explore-section">E-Waste & Hardware Drive</a></li>
+          <li><a href="#explore-section">Digital Literacy Workshops</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Verification & Trust</h5>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-view-certificate').click()">Digital Credentials</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-view-certificate').click()">Add to LinkedIn Profile</a></li>
+          <li><a href="#leaderboard-section">Leaderboard Rankings</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-log-hours-quick').click()">Submit Hour Audit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>HubSpot Technology Partner</h5>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-hubspot-app-preview').click()">HubSpot App Marketplace</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-hubspot-app-preview').click()">CRM UI Extension Card</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('btn-open-partner-intake').click()">Corporate Sponsorships</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Goodwill Industries International, Inc. All rights reserved.</span>
+      <span>Domain: goodwillindustriesinternational.com.ai</span>
+    </div>
+  </footer>
+
+  <!-- Reusable Accessible Modal Structure -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-container" id="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Modal Title</h3>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Body injected dynamically -->
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <!-- Footer actions injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript Entry Point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
