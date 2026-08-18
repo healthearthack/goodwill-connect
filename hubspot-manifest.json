@@ -1,0 +1,26 @@
+{
+  "name": "Goodwill Connect (CSR & Tech Onramp)",
+  "description": "Verifiable volunteer network, AI workforce training onramps, and automated CSR/ESG hour tracking for enterprise teams.",
+  "appId": "goodwill-connect-csr",
+  "category": "Corporate Social Responsibility / Non-Profit / Workforce Development",
+  "auth": {
+    "type": "oauth2",
+    "redirectUrls": [
+      "https://goodwillindustriesinternational.com.ai/auth/callback"
+    ],
+    "scopes": [
+      "crm.objects.contacts.read",
+      "crm.objects.contacts.write",
+      "crm.objects.companies.read"
+    ]
+  },
+  "extensions": {
+    "crmCards": [
+      {
+        "title": "Goodwill Verified Volunteer Record",
+        "targetObjects": ["contacts", "companies"],
+        "fetchUrl": "https://goodwillindustriesinternational.com.ai/hubspot-card.html"
+      }
+    ]
+  }
+}
