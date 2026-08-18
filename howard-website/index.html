@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howard | Your HubSpot AI Work Bestie &amp; Productivity Penpal</title>
+  <meta name="description" content="Howard is an asynchronous, email-first AI coworker for HubSpot. Write Howard letters about marketing campaigns, lead scoring, and pipeline health—while Howard silently executes background CRM updates." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/howard.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo">
+        <div class="wax-seal">☕</div>
+        <div class="brand-name">
+          <span>Howard</span>
+          <span class="badge-tag">Agent Mail</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Capabilities</a>
+        <a href="#interactive-demo">Letterbox Demo</a>
+        <a href="#hubspot-app">HubSpot App</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#interactive-demo" class="btn btn-outline">Write a Letter</a>
+        <a href="https://app.hubspot.com/oauth/authorize?client_id=2f68b95c-5172-45d0-9392-289a7eba3be7&redirect_uri=http://localhost:3000/oauth-callback&scope=oauth%20crm.objects.contacts.read%20crm.objects.contacts.write%20crm.objects.companies.read" class="btn btn-sprocket">
+          <span class="sprocket-icon">⚙️</span> Install for HubSpot
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-pill">💌 Asynchronous AI Coworker</span>
+        <span>Built natively for HubSpot Marketing &amp; CRM</span>
+      </div>
+
+      <h1 class="hero-title">
+        The productivity penpal that quietly runs your <span class="highlight-sprocket">HubSpot operations.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        AI chatbots are too hyperactive and shallow. Background plugins are opaque and disconnected. 
+        <strong>Howard</strong> operates on a thoughtful, tempoed email cadence—giving you deep strategic letters while silently executing lead scoring, campaign prep, and CRM hygiene behind the scenes.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#interactive-demo" class="btn btn-hero-primary">
+          <span>✉️</span> Open Penpal Letterbox
+        </a>
+        <div class="hero-email-badge">
+          <span class="badge-label">Direct Address:</span>
+          <code>howard@hubspot.mail</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Prop / Comparison Strip -->
+  <section class="comparison-strip" id="how-it-works">
+    <div class="strip-container">
+      <div class="comparison-card">
+        <div class="card-icon">⚡ Chatbots</div>
+        <h3>Hyperactive &amp; Shallow</h3>
+        <p>Instant answers with zero long-term memory. Interrupts your focus every 10 seconds.</p>
+      </div>
+
+      <div class="comparison-card highlight-card">
+        <div class="card-icon">☕ Howard (Agent Mail)</div>
+        <h3>Thoughtful &amp; Action-Oriented</h3>
+        <p>Takes a natural tempo to think, writes executive-grade letters, and executes silent CRM actions.</p>
+      </div>
+
+      <div class="comparison-card">
+        <div class="card-icon">🔌 Plugins</div>
+        <h3>Opaque &amp; Unmeasured</h3>
+        <p>Hidden scripts running in the dark with no narrative feedback or collaborative relationship.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Stationery Desk / Letterbox Demo -->
+  <section class="demo-section" id="interactive-demo">
+    <div class="demo-container">
+      <div class="section-heading">
+        <span class="eyebrow">Live Interactive Experience</span>
+        <h2>Try Writing a Letter to Howard</h2>
+        <p>Select an assignment or write your own note. Watch Howard inspect your CRM, execute mutations, and reply in natural asynchronous stride.</p>
+      </div>
+
+      <div class="desk-workspace">
+        <!-- Left: The Stationery Sheet -->
+        <div class="stationery-sheet">
+          <div class="stamp-box">
+            <div class="postage-stamp">
+              <span class="stamp-hub">HUBSPOT</span>
+              <span class="stamp-icon">⚙️</span>
+              <span class="stamp-yr">2026</span>
+            </div>
+            <div class="postmark">DISPATCHED · AGENT MAIL</div>
+          </div>
+
+          <div class="letter-meta-header">
+            <div class="meta-row">
+              <span class="meta-label">To:</span>
+              <span class="meta-val">Howard Vance &lt;howard@hubspot.mail&gt;</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Subject:</span>
+              <span class="meta-val" id="active-subject">Audit Q4 Re-engagement Sequences &amp; Silent Lead Scoring</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Date:</span>
+              <span class="meta-val" id="active-date">August 18, 2026</span>
+            </div>
+          </div>
+
+          <hr class="paper-divider" />
+
+          <!-- Thread Stream -->
+          <div class="thread-stream" id="thread-stream">
+            <!-- Dynamic Messages -->
+          </div>
+
+          <!-- Thinking Spinner -->
+          <div class="agent-thinking-bar" id="agent-thinking-bar" style="display: none;">
+            <div class="coffee-spinner"></div>
+            <span id="agent-status-text">Howard is brewing espresso and analyzing HubSpot contact records...</span>
+          </div>
+
+          <!-- Quick Composer -->
+          <div class="paper-composer">
+            <hr class="paper-divider" />
+            <div class="composer-header">
+              <span class="composer-title">✍️ Send a New Letter to Howard</span>
+              <div class="track-pills">
+                <button class="track-btn active" data-prompt="Howard, could you write 3 high-converting subject lines for our upcoming product launch?">💌 3 Subject Lines</button>
+                <button class="track-btn" data-prompt="Howard, please silently audit all uncontacted enterprise leads in HubSpot and tag high-intent matches.">📊 Audit Leads</button>
+                <button class="track-btn" data-prompt="Quick sanity check Howard: how is our marketing pipeline velocity looking today?">☕ Pipeline Check</button>
+              </div>
+            </div>
+            <textarea id="letter-input" placeholder="Dear Howard, &#10;&#10;Could you review our recent email sequence and make sure our contact scores are up to date?"></textarea>
+            <div class="composer-footer">
+              <span class="tempo-hint">✉️ Howard replies with verified HubSpot CRM actions in 4 seconds</span>
+              <button class="btn-dispatch" id="btn-send">
+                <span class="seal-glyph">🔏</span> Dispatch Letter
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Silent HubSpot CRM Terminal -->
+        <div class="crm-terminal">
+          <div class="terminal-head">
+            <div class="terminal-title">
+              <span class="pulse-emerald"></span>
+              <h3>Silent HubSpot CRM Terminal</h3>
+            </div>
+            <span class="terminal-badge">LIVE ENGINE</span>
+          </div>
+          <p class="terminal-desc">
+            As Howard writes letters, real background mutations are executed in your connected HubSpot portal:
+          </p>
+
+          <div class="action-feed" id="action-feed">
+            <!-- Populated via JS -->
+          </div>
+
+          <div class="terminal-workflow-box">
+            <h4>⚙️ Custom Workflow Action</h4>
+            <div class="wf-code-pill"><code>Ask Howard (Agent Mail Dispatch)</code></div>
+            <p>Connect Howard to any HubSpot automated sequence to trigger proactive penpal dispatches when deals stall or leads spike.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-section" id="features">
+    <div class="features-container">
+      <div class="section-heading">
+        <span class="eyebrow">Enterprise Productivity</span>
+        <h2>Everything Your Team Needs in an AI Coworker</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="f-icon">📬</div>
+          <h3>Asynchronous Stride</h3>
+          <p>Longer-stride agentic activity. Forward raw notes, meeting minutes, or rough campaign ideas and let Howard think through the strategy.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon">⚡</div>
+          <h3>Silent CRM Mutations</h3>
+          <p>Howard updates custom properties, lead scores, company records, and marketing lists directly in HubSpot without cluttering your activity feed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon">📇</div>
+          <h3>Native CRM Card Extensions</h3>
+          <p>Embedded directly on Contact, Company, and Deal tabs so your sales reps can see Howard's recent dispatches and intelligence with 1 click.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon">🔄</div>
+          <h3>Workflow Action Integration</h3>
+          <p>Add the "Ask Howard" action inside any HubSpot Automation Workflow to route high-value accounts for automated background research.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon">💌</div>
+          <h3>Email Marketing Mastery</h3>
+          <p>Howard specializes in high-converting subject line A/B testing, re-engagement cadences, and personalized nurture sequences.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="f-icon">☕</div>
+          <h3>Work Bestie Morale</h3>
+          <p>Thoughtful, witty, high-trust communication that feels like collaborating with a veteran colleague rather than an impersonal robot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot App Installation Section -->
+  <section class="install-section" id="hubspot-app">
+    <div class="install-card">
+      <div class="install-content">
+        <span class="install-badge">HubSpot App Marketplace Ready</span>
+        <h2>Ready to hire your new HubSpot work bestie?</h2>
+        <p>Install Howard onto your HubSpot portal in 1 click to unlock asynchronous email intelligence, CRM cards, and custom workflow actions.</p>
+        
+        <div class="install-buttons">
+          <a href="https://app.hubspot.com/oauth/authorize?client_id=2f68b95c-5172-45d0-9392-289a7eba3be7&redirect_uri=http://localhost:3000/oauth-callback&scope=oauth%20crm.objects.contacts.read%20crm.objects.contacts.write%20crm.objects.companies.read" class="btn btn-sprocket-large">
+            <span class="sprocket-icon">⚙️</span> Connect Howard to HubSpot
+          </a>
+          <a href="mailto:howard@goodwillindustriesinternational.com.ai" class="btn btn-outline-white">
+            Contact Howard's Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>Howard (Agent Mail)</strong>
+        <p>The Asynchronous Productivity Penpal for HubSpot Teams.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#interactive-demo">Letterbox Demo</a>
+        <a href="#features">Features</a>
+        <a href="https://app.hubspot.com/oauth/authorize?client_id=2f68b95c-5172-45d0-9392-289a7eba3be7&redirect_uri=http://localhost:3000/oauth-callback&scope=oauth%20crm.objects.contacts.read%20crm.objects.contacts.write%20crm.objects.companies.read">OAuth Install</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Howard (Agent Mail). Built for HubSpot App Marketplace.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/howard.js"></script>
+</body>
+</html>
